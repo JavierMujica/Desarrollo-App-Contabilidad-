@@ -11,16 +11,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: AppColors.primary,
-        appBar: AppBar(
-          backgroundColor: AppColors.secondary,
-          title: Text("MODULOS", style: TextStyles.bodyButton),
-          centerTitle: true,
-        ),
-        body: HomeScreen(),
-      ),
-    );
+    return MaterialApp(home: HomeScreen());
   }
 }

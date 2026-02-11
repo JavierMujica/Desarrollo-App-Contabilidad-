@@ -1,14 +1,14 @@
 import 'package:desarrollo_de_software/core/appdesing.dart';
 import 'package:flutter/material.dart';
 
-class Ordenprincipal extends StatefulWidget {
-  const Ordenprincipal({super.key});
+class InventarioAgregar extends StatefulWidget {
+  const InventarioAgregar({super.key});
 
   @override
-  State<Ordenprincipal> createState() => _OrdenprincipalState();
+  State<InventarioAgregar> createState() => _InventarioAgregarState();
 }
 
-class _OrdenprincipalState extends State<Ordenprincipal> {
+class _InventarioAgregarState extends State<InventarioAgregar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,11 +16,10 @@ class _OrdenprincipalState extends State<Ordenprincipal> {
       appBar: AppBar(
         backgroundColor: AppColors.secondary,
         foregroundColor: AppColors.primary,
-        title: Text("ORDEN", style: TextStyles.bodyButton),
+        title: Text("INVENTARIO", style: TextStyles.bodyButton),
         centerTitle: true,
       ),
-      body: Placeholder(),
+      body: Row(children: []),
     );
-    ;
   }
 }

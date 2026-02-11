@@ -10,7 +10,7 @@ class AppColors {
 
 class TextStyles {
   static const TextStyle bodyText = TextStyle(
-    fontSize: 32,
+    fontSize: 25,
     color: AppColors.secondary,
     fontWeight: FontWeight.bold,
     fontFamily: "Inter",

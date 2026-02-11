@@ -32,6 +32,7 @@ class _ButtonHomeState extends State<ButtonHome> {
         shape: WidgetStateProperty.all(
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         ),
+
         overlayColor: WidgetStateProperty.all(
           // ignore: deprecated_member_use
           AppColors.secondary.withOpacity(0.2),
@@ -39,7 +40,15 @@ class _ButtonHomeState extends State<ButtonHome> {
       ),
       child: Row(
         children: [
-          Image.asset(widget.nameImage, height: 60, width: 60),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+              widget.nameImage,
+              height: 60,
+              width: 60,
+              color: AppColors.buttonSecondary,
+            ),
+          ),
           SizedBox(width: 15),
           Text(widget.name, style: TextStyles.bodyText),
         ],
