@@ -1,7 +1,9 @@
-import 'package:desarrollo_de_software/components/buttonLine.dart';
+import 'package:desarrollo_de_software/components/buttonLineIcon.dart';
+import 'package:desarrollo_de_software/components/buttonSerch.dart';
 import 'package:desarrollo_de_software/components/dropDownFormField.dart';
 import 'package:desarrollo_de_software/components/textFieldFacturacion.dart';
 import 'package:desarrollo_de_software/core/appdesing.dart';
+import 'package:desarrollo_de_software/screens/facturacion/buscarProducto.dart';
 import 'package:desarrollo_de_software/screens/inventario/inventarioAgregar.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +27,7 @@ class _InventarioprincipalState extends State<Inventarioprincipal> {
         title: Text("INVENTARIO", style: TextStyles.bodyButton),
         centerTitle: true,
       ),
-      body: Row(children: [ColumnaIzquierda()]),
+      body: Row(children: [Expanded(child: ColumnaIzquierda())]),
     );
   }
 
@@ -35,7 +37,7 @@ class _InventarioprincipalState extends State<Inventarioprincipal> {
       padding: const EdgeInsets.only(top: 50.0, bottom: 50.0, left: 40),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Dropdownformfield(
             ancho: ancho,
@@ -48,22 +50,15 @@ class _InventarioprincipalState extends State<Inventarioprincipal> {
             children: [
               Textfieldfacturacion(
                 name: "Consultar Producto",
-                color: AppColors.secondary,
                 alto: alto,
                 ancho: 310,
+                color: AppColors.secondary,
               ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.search,
-                  color: AppColors.buttonSecondary,
-                  size: 30,
-                ),
-              ),
+              Buttonserch(page: Placeholder()),
             ],
           ),
-
-          Buttonline(
+          Spacer(),
+          ButtonlineIcon(
             name: "Agregar",
             alto: 80,
             ancho: 200,
@@ -71,8 +66,8 @@ class _InventarioprincipalState extends State<Inventarioprincipal> {
             page: InventarioAgregar(),
             icono: Icons.add,
           ),
-          SizedBox(height: 5),
-          Buttonline(
+          SizedBox(height: 20),
+          ButtonlineIcon(
             name: "Eliminar",
             alto: 80,
             ancho: 200,
@@ -80,8 +75,8 @@ class _InventarioprincipalState extends State<Inventarioprincipal> {
             page: InventarioAgregar(),
             icono: Icons.remove,
           ),
-          SizedBox(height: 5),
-          Buttonline(
+          SizedBox(height: 20),
+          ButtonlineIcon(
             name: "Editar",
             alto: 80,
             ancho: 200,
@@ -89,6 +84,7 @@ class _InventarioprincipalState extends State<Inventarioprincipal> {
             page: InventarioAgregar(),
             icono: Icons.edit,
           ),
+          SizedBox(height: 0),
         ],
       ),
     );

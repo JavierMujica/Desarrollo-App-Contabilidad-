@@ -1,8 +1,10 @@
 // ignore: file_names
-import 'package:desarrollo_de_software/components/buttonBlue.dart';
+import 'package:desarrollo_de_software/components/buttonColor.dart';
+import 'package:desarrollo_de_software/components/buttonSerch.dart';
 import 'package:desarrollo_de_software/components/dropDownFormField.dart';
 import 'package:desarrollo_de_software/components/textFieldFacturacion.dart';
 import 'package:desarrollo_de_software/core/appdesing.dart';
+import 'package:desarrollo_de_software/screens/facturacion/buscarProducto.dart';
 import 'package:flutter/material.dart';
 
 class Facturacionprincipal extends StatefulWidget {
@@ -29,7 +31,7 @@ class _FacturacionprincipalState extends State<Facturacionprincipal> {
       body: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(40.0),
             //color: Colors.red,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,7 +44,7 @@ class _FacturacionprincipalState extends State<Facturacionprincipal> {
                   alto: _alto,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
+                  padding: const EdgeInsets.only(top: 15, bottom: 15),
                   child: Textfieldfacturacion(
                     name: "Nombre Cliente",
                     color: AppColors.buttonSecondary,
@@ -51,7 +53,7 @@ class _FacturacionprincipalState extends State<Facturacionprincipal> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
+                  padding: const EdgeInsets.only(top: 15, bottom: 15),
                   child: Textfieldfacturacion(
                     name: "Direccion",
                     color: AppColors.buttonSecondary,
@@ -60,7 +62,16 @@ class _FacturacionprincipalState extends State<Facturacionprincipal> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
+                  padding: const EdgeInsets.only(top: 15, bottom: 15),
+                  child: Textfieldfacturacion(
+                    name: "Telefono",
+                    color: AppColors.buttonSecondary,
+                    ancho: _ancho,
+                    alto: _alto,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15, bottom: 15),
                   child: Dropdownformfield(
                     name: "Ciudadano",
                     color: AppColors.buttonSecondary,
@@ -70,7 +81,7 @@ class _FacturacionprincipalState extends State<Facturacionprincipal> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
+                  padding: const EdgeInsets.only(top: 15, bottom: 15),
                   child: Row(
                     children: [
                       Textfieldfacturacion(
@@ -79,14 +90,7 @@ class _FacturacionprincipalState extends State<Facturacionprincipal> {
                         ancho: 180,
                         alto: 60,
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.search,
-                          color: AppColors.buttonSecondary,
-                          size: 30,
-                        ),
-                      ),
+                      Buttonserch(page: Placeholder()),
                       SizedBox(width: 20),
                       Textfieldfacturacion(
                         name: "Unds.",
@@ -98,7 +102,13 @@ class _FacturacionprincipalState extends State<Facturacionprincipal> {
                   ),
                 ),
                 Spacer(),
-                Buttonblue(name: "Agregar Producto", alto: 68, ancho: 350),
+                Buttoncolor(
+                  name: "Agregar Producto",
+                  alto: 68,
+                  ancho: 350,
+                  page: Placeholder(),
+                  color: AppColors.buttonSecondary,
+                ),
               ],
             ),
           ),

@@ -1,4 +1,3 @@
-import 'package:desarrollo_de_software/core/appdesing.dart';
 import 'package:desarrollo_de_software/screens/home.dart';
 import 'package:flutter/material.dart';
 

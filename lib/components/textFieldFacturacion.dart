@@ -40,17 +40,11 @@ class _TextfieldfacturacionState extends State<Textfieldfacturacion> {
             decoration: InputDecoration(
               // Color de la línea cuando NO está seleccionado
               enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: AppColors.buttonSecondary,
-                  width: 1.5,
-                ),
+                borderSide: BorderSide(color: widget.color, width: 1.5),
               ),
               // Color de la línea cuando EL USUARIO HACE CLIC
               focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: AppColors.buttonSecondary,
-                  width: 3,
-                ),
+                borderSide: BorderSide(color: widget.color, width: 3),
               ),
               hintText: null,
             ),

@@ -1,31 +1,40 @@
 import 'package:desarrollo_de_software/core/appdesing.dart';
 import 'package:flutter/material.dart';
 
-class Buttonblue extends StatefulWidget {
+class Buttoncolor extends StatefulWidget {
   final String name;
   final double ancho;
   final double alto;
-  const Buttonblue({
+  final Widget page;
+  final Color color;
+  const Buttoncolor({
     super.key,
     required this.alto,
     required this.ancho,
     required this.name,
+    required this.page,
+    required this.color,
   });
 
   @override
-  State<Buttonblue> createState() => _ButtonblueState();
+  State<Buttoncolor> createState() => _ButtoncolorState();
 }
 
-class _ButtonblueState extends State<Buttonblue> {
+class _ButtoncolorState extends State<Buttoncolor> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: widget.alto,
       width: widget.ancho,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => widget.page),
+          );
+        },
         style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all(AppColors.buttonSecondary),
+          backgroundColor: WidgetStateProperty.all(widget.color),
         ),
         child: Text(widget.name, style: TextStyles.bodyButton),
       ),

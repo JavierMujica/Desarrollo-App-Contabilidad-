@@ -21,6 +21,5 @@ class _OrdenprincipalState extends State<Ordenprincipal> {
       ),
       body: Placeholder(),
     );
-    ;
   }
 }

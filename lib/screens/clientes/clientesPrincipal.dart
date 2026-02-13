@@ -21,6 +21,5 @@ class _ClientesPrincipalState extends State<ClientesPrincipal> {
       ),
       body: Placeholder(),
     );
-    ;
   }
 }

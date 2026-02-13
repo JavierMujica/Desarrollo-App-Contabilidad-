@@ -1,27 +1,29 @@
 import 'package:desarrollo_de_software/core/appdesing.dart';
 import 'package:flutter/material.dart';
 
-class Buttonline extends StatefulWidget {
+class ButtonlineIcon extends StatefulWidget {
   final String name;
   final double alto;
   final double ancho;
   final Color color;
   final Widget page;
+  final IconData icono;
 
-  const Buttonline({
+  const ButtonlineIcon({
     super.key,
     required this.name,
     required this.alto,
     required this.ancho,
     required this.color,
     required this.page,
+    required this.icono,
   });
 
   @override
-  State<Buttonline> createState() => _ButtonlineState();
+  State<ButtonlineIcon> createState() => _ButtonlineIconState();
 }
 
-class _ButtonlineState extends State<Buttonline> {
+class _ButtonlineIconState extends State<ButtonlineIcon> {
   @override
   Widget build(BuildContext context) {
     return TextButton(
@@ -44,7 +46,9 @@ class _ButtonlineState extends State<Buttonline> {
         width: widget.ancho,
         height: widget.alto,
         decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(color: widget.color, width: 3)),
+          border: Border(
+            bottom: BorderSide(color: AppColors.secondary, width: 3),
+          ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -58,6 +62,8 @@ class _ButtonlineState extends State<Buttonline> {
                 color: Colors.black,
               ),
             ),
+            const SizedBox(width: 10), // Espacio entre texto e icono
+            Icon(widget.icono, color: AppColors.buttonSecondary, size: 40.0),
           ],
         ),
       ),
