@@ -5,15 +5,18 @@ class Buttoncolor extends StatefulWidget {
   final String name;
   final double ancho;
   final double alto;
-  final Widget page;
+  final Widget? page;
   final Color color;
+  final Function? function;
+
   const Buttoncolor({
     super.key,
     required this.alto,
     required this.ancho,
     required this.name,
-    required this.page,
+    this.page,
     required this.color,
+    this.function,
   });
 
   @override
@@ -28,10 +31,12 @@ class _ButtoncolorState extends State<Buttoncolor> {
       width: widget.ancho,
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => widget.page),
-          );
+          if (widget.page != null) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => widget.page!),
+            );
+          }
         },
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(widget.color),

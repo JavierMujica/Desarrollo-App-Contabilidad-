@@ -100,7 +100,7 @@ class _InventarioAgregarState extends State<InventarioAgregar> {
                 Buttoncolor(
                   alto: 60,
                   ancho: 315,
-                  name: "Imagen",
+                  name: "Crear",
                   page: Placeholder(),
                   color: AppColors.buttonSecondary,
                 ),

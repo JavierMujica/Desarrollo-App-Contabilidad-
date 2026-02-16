@@ -21,6 +21,5 @@ class _ButtonserchState extends State<Buttonserch> {
       },
       icon: Icon(Icons.search, color: AppColors.buttonSecondary, size: 30),
     );
-    ;
   }
 }
