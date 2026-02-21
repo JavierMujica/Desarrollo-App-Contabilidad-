@@ -28,34 +28,55 @@ class _OrdenregistrarState extends State<Ordenregistrar> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Textfieldfacturacion(
-                  name: "Producto",
-                  color: AppColors.secondary,
-                  alto: 52,
-                  ancho: 315,
+            Expanded(
+              child: Align(
+                alignment: AlignmentGeometry.topLeft,
+                child: const SizedBox(
+                  width: 400,
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Textfieldfacturacion(
+                                name: "Producto",
+                                color: AppColors.secondary,
+                                alto: 52,
+                                ancho: 315,
+                              ),
+                              Buttonserch(page: Placeholder()),
+                            ],
+                          ),
+                          SizedBox(height: 66),
+                          Textfieldfacturacion(
+                            name: "Unidades",
+                            color: AppColors.secondary,
+                            alto: 52,
+                            ancho: 315,
+                          ),
+                          SizedBox(height: 66),
+                          Textfieldfacturacion(
+                            name: "Costo-Unidad",
+                            color: AppColors.secondary,
+                            alto: 52,
+                            ancho: 315,
+                          ),
+                          SizedBox(height: 66),
+                          Fechafield(
+                            name: "Fecha-Tentativa",
+                            color: AppColors.secondary,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
-                Buttonserch(page: Placeholder()),
-              ],
+              ),
             ),
-            SizedBox(height: 66),
-            Textfieldfacturacion(
-              name: "Unidades",
-              color: AppColors.secondary,
-              alto: 52,
-              ancho: 315,
-            ),
-            SizedBox(height: 66),
-            Textfieldfacturacion(
-              name: "Costo-Unidad",
-              color: AppColors.secondary,
-              alto: 52,
-              ancho: 315,
-            ),
-            SizedBox(height: 66),
-            Fechafield(name: "Fecha-Tentativa", color: AppColors.secondary),
-            Spacer(),
+            const SizedBox(height: 20),
             Buttoncolor(
               alto: 58,
               ancho: 315,
