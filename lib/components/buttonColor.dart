@@ -1,13 +1,13 @@
 import 'package:desarrollo_de_software/core/appdesing.dart';
 import 'package:flutter/material.dart';
 
-class Buttoncolor extends StatefulWidget {
+class Buttoncolor extends StatelessWidget {
   final String name;
   final double ancho;
   final double alto;
   final Widget? page;
   final Color color;
-  final Function? function;
+  final VoidCallback? function;
 
   const Buttoncolor({
     super.key,
@@ -20,28 +20,24 @@ class Buttoncolor extends StatefulWidget {
   });
 
   @override
-  State<Buttoncolor> createState() => _ButtoncolorState();
-}
-
-class _ButtoncolorState extends State<Buttoncolor> {
-  @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: widget.alto,
-      width: widget.ancho,
+      height: alto,
+      width: ancho,
       child: ElevatedButton(
         onPressed: () {
-          if (widget.page != null) {
+          if (function != null) {
+            function!();
+          }
+          if (page != null) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => widget.page!),
+              MaterialPageRoute(builder: (context) => page!),
             );
           }
         },
-        style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all(widget.color),
-        ),
-        child: Text(widget.name, style: TextStyles.bodyButton),
+        style: ButtonStyle(backgroundColor: WidgetStateProperty.all(color)),
+        child: Text(name, style: TextStyles.bodyButton),
       ),
     );
   }

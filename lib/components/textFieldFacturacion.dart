@@ -6,6 +6,7 @@ class Textfieldfacturacion extends StatefulWidget {
   final Color color;
   final double ancho;
   final double alto;
+  final Function(String)? onChanged;
 
   const Textfieldfacturacion({
     super.key,
@@ -13,6 +14,7 @@ class Textfieldfacturacion extends StatefulWidget {
     required this.color,
     required this.alto,
     required this.ancho,
+    this.onChanged,
   });
 
   @override
@@ -48,6 +50,7 @@ class _TextfieldfacturacionState extends State<Textfieldfacturacion> {
               ),
               hintText: null,
             ),
+            onChanged: widget.onChanged,
           ),
         ),
       ],

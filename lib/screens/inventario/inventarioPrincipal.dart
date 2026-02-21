@@ -59,6 +59,14 @@ class _InventarioprincipalState extends State<Inventarioprincipal> {
           ),
           Spacer(),
           ButtonlineIcon(
+            name: "Categoria",
+            alto: 80,
+            ancho: 200,
+            color: AppColors.secondary,
+            page: InventarioAgregar(),
+            icono: Icons.add,
+          ),
+          ButtonlineIcon(
             name: "Agregar",
             alto: 80,
             ancho: 200,
