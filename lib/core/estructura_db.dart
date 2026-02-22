@@ -126,13 +126,13 @@ class Orden {
   // Recibir del backend en el GET
   factory Orden.fromJson(Map<String, dynamic> json) {
     return Orden(
-      id: json['ID'],
-      producto: json['Producto'],
-      cantidad: json['Cantidad'],
-      fechaLlegada: json['FechaLlegada'],
-      // Usamos .toDouble() por si el backend manda un entero (ej: 100 en vez de 100.0)
-      costo: json['Costo'].toDouble(),
-      recibida: json['Recibida'],
+      // Fíjate bien en las mayúsculas exactas del JSON de FastAPI
+      id: json['ID'] ?? 0,
+      producto: json['Producto'] ?? 'Desconocido',
+      cantidad: json['Cantidad'] ?? 0,
+      fechaLlegada: json['FechaLlegada'] ?? 'Sin fecha',
+      costo: (json['Costo'] ?? 0.0).toDouble(),
+      recibida: json['Recibida'] ?? false,
     );
   }
 }
@@ -170,7 +170,8 @@ class Producto {
     "Codigo": codigo,
     "LimiteExistencia": limiteExistencia,
     "Unidades": unidades,
-    "Imagen": imagen,
+    // Evitar enviar null: usar marcador "sin_imagen" cuando no haya imagen
+    "Imagen": imagen ?? "sin_imagen",
   };
 
   // Recibir del backend en el GET

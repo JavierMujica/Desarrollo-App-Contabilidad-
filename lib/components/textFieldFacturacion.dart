@@ -7,6 +7,8 @@ class Textfieldfacturacion extends StatefulWidget {
   final double ancho;
   final double alto;
   final Function(String)? onChanged;
+  final String? initialValue;
+  final ValueChanged<String>? onFieldSubmitted;
 
   const Textfieldfacturacion({
     super.key,
@@ -15,6 +17,8 @@ class Textfieldfacturacion extends StatefulWidget {
     required this.alto,
     required this.ancho,
     this.onChanged,
+    this.initialValue,
+    this.onFieldSubmitted,
   });
 
   @override
@@ -32,7 +36,11 @@ class _TextfieldfacturacionState extends State<Textfieldfacturacion> {
           width: widget.ancho,
           height: widget.alto,
           //color: Colors.amber,
-          child: TextField(
+          child: TextFormField(
+            onFieldSubmitted: widget.onFieldSubmitted,
+            textInputAction: TextInputAction.search,
+            initialValue: widget.initialValue,
+
             style: TextStyle(
               decorationColor: widget.color,
               fontFamily: "Inter",
