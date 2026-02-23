@@ -43,10 +43,8 @@ class _OrdenprincipalState extends State<Ordenprincipal> {
         recibida: true, // ¡La marcamos como recibida!
       );
 
-      // 2. Enviamos el PUT a la API
-      bool exito = await OrdenService().actualizarOrden(
-        ordenActualizada as int,
-      );
+      // 2. Enviamos el PUT a la API con el ID de la orden
+      bool exito = await OrdenService().actualizarOrden(ordenActualizada.id);
 
       if (exito) {
         ScaffoldMessenger.of(context).showSnackBar(

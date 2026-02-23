@@ -7,6 +7,7 @@ import 'package:desarrollo_de_software/core/conexion_db.dart';
 import 'package:desarrollo_de_software/core/estructura_db.dart';
 import 'package:desarrollo_de_software/screens/inventario/crearCategoria.dart';
 import 'package:desarrollo_de_software/screens/inventario/editarProduccto.dart';
+import 'package:desarrollo_de_software/screens/inventario/eliminarInventario.dart';
 import 'package:desarrollo_de_software/screens/inventario/inventarioAgregar.dart';
 import 'package:flutter/material.dart';
 
@@ -141,7 +142,7 @@ class _InventarioprincipalState extends State<Inventarioprincipal> {
                         alto: 80,
                         ancho: 350,
                         color: AppColors.secondary,
-                        page: const InventarioAgregar(), // Cambiar luego
+                        page: EliminarInventario(), // Cambiar luego
                         icono: Icons.remove,
                       ),
                     ],

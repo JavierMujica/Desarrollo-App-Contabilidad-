@@ -4,6 +4,7 @@ import 'package:desarrollo_de_software/components/textFieldFacturacion.dart';
 import 'package:desarrollo_de_software/core/appdesing.dart';
 import 'package:desarrollo_de_software/core/conexion_db.dart'; // Importante para la API
 import 'package:desarrollo_de_software/core/estructura_db.dart'; // Modelo de datos
+import 'package:desarrollo_de_software/screens/proveedores/proveedorEliminar.dart';
 import 'package:desarrollo_de_software/screens/proveedores/proveedorRegistrar.dart';
 import 'package:flutter/material.dart';
 
@@ -100,7 +101,7 @@ class _ProveedorprincipalState extends State<Proveedorprincipal> {
                     alto: 80,
                     ancho: 350,
                     color: AppColors.secondary,
-                    page: const Placeholder(), // Lo conectaremos después
+                    page: ProveedorEliminar(), // Lo conectaremos después
                     icono: Icons.remove,
                   ),
                 ],

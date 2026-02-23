@@ -36,7 +36,7 @@ class Buttoncolor extends StatelessWidget {
             );
           }
         },
-        style: ButtonStyle(backgroundColor: WidgetStateProperty.all(color)),
+        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(color)),
         child: Text(name, style: TextStyles.bodyButton),
       ),
     );

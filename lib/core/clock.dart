@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 // Este es el widget reutilizable. NO tiene Scaffold.
 class MinimalClockWidget extends StatefulWidget {
-  const MinimalClockWidget({super.key});
+  final double size;
+  const MinimalClockWidget({super.key, this.size = 300});
 
   @override
   State<MinimalClockWidget> createState() => _MinimalClockWidgetState();
@@ -38,35 +39,38 @@ class _MinimalClockWidgetState extends State<MinimalClockWidget> {
     // Puedes mover estos colores a tu archivo de diseño si prefieres
     const Color clockColor = Color(0xFF2C3E50);
 
+    final double diameter = widget.size;
+    final double fontScale = diameter / 300.0;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center, // Centrado verticalmente
       children: [
         // El dibujo del reloj
         SizedBox(
-          width: 300,
-          height: 300,
+          width: diameter,
+          height: diameter,
           child: CustomPaint(
             painter: ClockPainter(time: _now, color: clockColor),
           ),
         ),
-        const SizedBox(height: 30),
+        SizedBox(height: 30 * fontScale),
         // Hora
         Text(
           '${_now.hour.toString().padLeft(2, '0')}:${_now.minute.toString().padLeft(2, '0')}',
-          style: const TextStyle(
+          style: TextStyle(
             color: clockColor,
-            fontSize: 60,
+            fontSize: 60 * fontScale,
             fontWeight: FontWeight.bold,
             letterSpacing: 3.0,
           ),
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: 10 * fontScale),
         // Fecha
         Text(
           '${_now.day.toString().padLeft(2, '0')}/${_now.month.toString().padLeft(2, '0')}/${_now.year}',
-          style: const TextStyle(
+          style: TextStyle(
             color: clockColor,
-            fontSize: 24,
+            fontSize: 24 * fontScale,
             fontWeight: FontWeight.w600,
           ),
         ),

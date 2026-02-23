@@ -9,6 +9,7 @@ class Textfieldfacturacion extends StatefulWidget {
   final Function(String)? onChanged;
   final String? initialValue;
   final ValueChanged<String>? onFieldSubmitted;
+  final TextEditingController? controller;
 
   const Textfieldfacturacion({
     super.key,
@@ -19,6 +20,7 @@ class Textfieldfacturacion extends StatefulWidget {
     this.onChanged,
     this.initialValue,
     this.onFieldSubmitted,
+    this.controller,
   });
 
   @override
@@ -37,9 +39,10 @@ class _TextfieldfacturacionState extends State<Textfieldfacturacion> {
           height: widget.alto,
           //color: Colors.amber,
           child: TextFormField(
+            controller: widget.controller,
             onFieldSubmitted: widget.onFieldSubmitted,
             textInputAction: TextInputAction.search,
-            initialValue: widget.initialValue,
+            initialValue: widget.controller == null ? widget.initialValue : null,
 
             style: TextStyle(
               decorationColor: widget.color,
