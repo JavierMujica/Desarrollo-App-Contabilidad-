@@ -93,7 +93,8 @@ class FacturaService {
   final String baseUrl = "http://localhost:8000"; // Tu IP local del emulador
 
   // 1. POST /Factura (Crear)
-  Future<bool> crearFactura(Factura nuevaFactura) async {
+  // Devuelve el ID creado como String o null en caso de error
+  Future<String?> crearFactura(Factura nuevaFactura) async {
     try {
       final response = await http.post(
         Uri.parse('$baseUrl/Factura'),
@@ -101,10 +102,20 @@ class FacturaService {
         body: jsonEncode(nuevaFactura.toJson()),
       );
 
-      return response.statusCode == 200;
+      if (response.statusCode == 200) {
+        // El backend devuelve el código/ID en el body
+        final respBody = response.body;
+        print('Factura POST succeeded, id: $respBody');
+        return respBody;
+      } else {
+        // Log detail to help debug 422/validation errors
+        print('Factura POST failed: ${response.statusCode}');
+        print('Response body: ${response.body}');
+        return null;
+      }
     } catch (e) {
       print("Error al crear factura: $e");
-      return false;
+      return null;
     }
   }
 

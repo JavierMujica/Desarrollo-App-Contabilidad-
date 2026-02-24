@@ -28,6 +28,20 @@ class Textfieldfacturacion extends StatefulWidget {
 }
 
 class _TextfieldfacturacionState extends State<Textfieldfacturacion> {
+  late TextEditingController _internalController;
+  bool _usingInternal = false;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.controller != null) {
+      _internalController = widget.controller!;
+      _usingInternal = false;
+    } else {
+      _internalController = TextEditingController(text: widget.initialValue ?? '');
+      _usingInternal = true;
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -39,10 +53,9 @@ class _TextfieldfacturacionState extends State<Textfieldfacturacion> {
           height: widget.alto,
           //color: Colors.amber,
           child: TextFormField(
-            controller: widget.controller,
+            controller: _internalController,
             onFieldSubmitted: widget.onFieldSubmitted,
             textInputAction: TextInputAction.search,
-            initialValue: widget.controller == null ? widget.initialValue : null,
 
             style: TextStyle(
               decorationColor: widget.color,
@@ -66,5 +79,45 @@ class _TextfieldfacturacionState extends State<Textfieldfacturacion> {
         ),
       ],
     );
+  }
+
+  @override
+  void didUpdateWidget(covariant Textfieldfacturacion oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // If the parent starts providing a controller, switch to it
+    if (oldWidget.controller == null && widget.controller != null) {
+      // Transfer text to the new controller
+      try {
+        widget.controller!.text = _internalController.text;
+      } catch (_) {}
+      if (_usingInternal) {
+        try {
+          _internalController.dispose();
+        } catch (_) {}
+      }
+      _internalController = widget.controller!;
+      _usingInternal = false;
+      return;
+    }
+
+    // If the parent removed the controller, create an internal one and copy text
+    if (oldWidget.controller != null && widget.controller == null) {
+      _internalController = TextEditingController(text: oldWidget.controller!.text);
+      _usingInternal = true;
+      return;
+    }
+
+    // If the parent changed initialValue and we're using internal controller, update it
+    if (_usingInternal && widget.initialValue != null && widget.initialValue != _internalController.text) {
+      _internalController.text = widget.initialValue!;
+    }
+  }
+
+  @override
+  void dispose() {
+    try {
+      if (_usingInternal) _internalController.dispose();
+    } catch (_) {}
+    super.dispose();
   }
 }
