@@ -579,12 +579,22 @@ class _FacturacionprincipalState extends State<Facturacionprincipal> {
               // Si el producto no tiene ID, intentar obtenerlo por código.
               // Construir detalles para enviar al backend usando el código del producto
               try {
-                print('Carrito antes de construir detalles: ' +
-                    _items.map((it) => '${it.producto.codigo}').toList().toString());
+                print(
+                  'Carrito antes de construir detalles: ' +
+                      _items
+                          .map((it) => '${it.producto.codigo}')
+                          .toList()
+                          .toString(),
+                );
               } catch (_) {}
 
               final List<DetalleFactura> detalles = _items
-                  .map((it) => DetalleFactura(producto: it.producto.codigo, cantidad: it.cantidad))
+                  .map(
+                    (it) => DetalleFactura(
+                      producto: it.producto.codigo,
+                      cantidad: it.cantidad,
+                    ),
+                  )
                   .toList();
 
               // Obtener número de factura siguiente consultando al backend (fallback a timestamp)
@@ -602,15 +612,22 @@ class _FacturacionprincipalState extends State<Facturacionprincipal> {
               final nombreCompleto = '$_nombreCliente $_apellidoCliente'.trim();
 
               // Validar que todos los detalles tengan un código de producto válido
-              final detallesInvalidos = detalles.where((d) => d.producto == null || d.producto.trim().isEmpty).toList();
+              final detallesInvalidos = detalles
+                  .where((d) => d.producto == null || d.producto.trim().isEmpty)
+                  .toList();
               if (detallesInvalidos.isNotEmpty) {
                 await showDialog<void>(
                   context: context,
                   builder: (c) => AlertDialog(
                     title: const Text('Producto sin código'),
-                    content: const Text('Uno o más productos no tienen un código válido. Revise los códigos.'),
+                    content: const Text(
+                      'Uno o más productos no tienen un código válido. Revise los códigos.',
+                    ),
                     actions: [
-                      TextButton(onPressed: () => Navigator.pop(c), child: const Text('OK')),
+                      TextButton(
+                        onPressed: () => Navigator.pop(c),
+                        child: const Text('OK'),
+                      ),
                     ],
                   ),
                 );

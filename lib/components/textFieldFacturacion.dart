@@ -38,10 +38,13 @@ class _TextfieldfacturacionState extends State<Textfieldfacturacion> {
       _internalController = widget.controller!;
       _usingInternal = false;
     } else {
-      _internalController = TextEditingController(text: widget.initialValue ?? '');
+      _internalController = TextEditingController(
+        text: widget.initialValue ?? '',
+      );
       _usingInternal = true;
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -102,13 +105,17 @@ class _TextfieldfacturacionState extends State<Textfieldfacturacion> {
 
     // If the parent removed the controller, create an internal one and copy text
     if (oldWidget.controller != null && widget.controller == null) {
-      _internalController = TextEditingController(text: oldWidget.controller!.text);
+      _internalController = TextEditingController(
+        text: oldWidget.controller!.text,
+      );
       _usingInternal = true;
       return;
     }
 
     // If the parent changed initialValue and we're using internal controller, update it
-    if (_usingInternal && widget.initialValue != null && widget.initialValue != _internalController.text) {
+    if (_usingInternal &&
+        widget.initialValue != null &&
+        widget.initialValue != _internalController.text) {
       _internalController.text = widget.initialValue!;
     }
   }

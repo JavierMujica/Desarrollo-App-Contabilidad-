@@ -94,7 +94,9 @@ class _FacturacionPagoState extends State<FacturacionPago> {
         context: context,
         builder: (c) => AlertDialog(
           title: const Text('Error'),
-          content: const Text('Factura creada pero no se pudo completar el pago. Intente nuevamente.'),
+          content: const Text(
+            'Factura creada pero no se pudo completar el pago. Intente nuevamente.',
+          ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(c),
@@ -127,11 +129,24 @@ class _FacturacionPagoState extends State<FacturacionPago> {
       onTap: () => setState(() => _metodo = metodo),
       child: Column(
         children: [
-          Icon(icon, size: 44, color: selected ? AppColors.secondary : Colors.black87),
+          Icon(
+            icon,
+            size: 44,
+            color: selected ? AppColors.secondary : Colors.black87,
+          ),
           const SizedBox(height: 8),
-          Text(metodo, style: TextStyle(color: selected ? AppColors.secondary : Colors.black87)),
+          Text(
+            metodo,
+            style: TextStyle(
+              color: selected ? AppColors.secondary : Colors.black87,
+            ),
+          ),
           const SizedBox(height: 6),
-          Container(height: 3, width: 80, color: selected ? AppColors.secondary : Colors.transparent),
+          Container(
+            height: 3,
+            width: 80,
+            color: selected ? AppColors.secondary : Colors.transparent,
+          ),
         ],
       ),
     );
@@ -158,7 +173,9 @@ class _FacturacionPagoState extends State<FacturacionPago> {
                 constraints: const BoxConstraints(maxWidth: 1000),
                 child: Card(
                   elevation: 6,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.all(28.0),
                     child: Row(
@@ -169,18 +186,54 @@ class _FacturacionPagoState extends State<FacturacionPago> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text('Factura: ${widget.numeroFactura}', style: TextStyles.titleStyle.copyWith(fontSize: 22, color: AppColors.secondary)),
+                              Text(
+                                'Factura: ${widget.numeroFactura}',
+                                style: TextStyles.titleStyle.copyWith(
+                                  fontSize: 22,
+                                  color: AppColors.secondary,
+                                ),
+                              ),
                               const SizedBox(height: 14),
-                              Text('Cliente: ${widget.cedula}', style: TextStyles.bodyText.copyWith(fontSize: 18, color: AppColors.secondary)),
+                              Text(
+                                'Cliente: ${widget.cedula}',
+                                style: TextStyles.bodyText.copyWith(
+                                  fontSize: 18,
+                                  color: AppColors.secondary,
+                                ),
+                              ),
                               const SizedBox(height: 6),
-                              Text(widget.nombreCliente, style: TextStyles.bodyText.copyWith(fontSize: 18, color: AppColors.secondary)),
+                              Text(
+                                widget.nombreCliente,
+                                style: TextStyles.bodyText.copyWith(
+                                  fontSize: 18,
+                                  color: AppColors.secondary,
+                                ),
+                              ),
                               const SizedBox(height: 24),
                               Row(
                                 children: [
-                                  Text('Monto: ', style: TextStyle(color: AppColors.secondary, fontWeight: FontWeight.bold)),
-                                  Text('\$ ${widget.monto.toStringAsFixed(2)}', style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold)),
+                                  Text(
+                                    'Monto: ',
+                                    style: TextStyle(
+                                      color: AppColors.secondary,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    '\$ ${widget.monto.toStringAsFixed(2)}',
+                                    style: const TextStyle(
+                                      color: Colors.green,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
                                   const SizedBox(width: 12),
-                                  Text('Bs ${montoBs.toStringAsFixed(2)}', style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold)),
+                                  Text(
+                                    'Bs ${montoBs.toStringAsFixed(2)}',
+                                    style: const TextStyle(
+                                      color: Colors.green,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
                                 ],
                               ),
                             ],
@@ -193,7 +246,8 @@ class _FacturacionPagoState extends State<FacturacionPago> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   _metodoButton('Efectivo', Icons.attach_money),
                                   _metodoButton('Tarjeta', Icons.credit_card),
@@ -207,11 +261,23 @@ class _FacturacionPagoState extends State<FacturacionPago> {
                                   width: 140,
                                   height: 46,
                                   child: _loading
-                                      ? const Center(child: CircularProgressIndicator())
+                                      ? const Center(
+                                          child: CircularProgressIndicator(),
+                                        )
                                       : ElevatedButton(
-                                          style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppColors.positive)),
+                                          style: ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStateProperty.all(
+                                                  AppColors.positive,
+                                                ),
+                                          ),
                                           onPressed: _procesarPago,
-                                          child: const Text('Pagado', style: TextStyle(color: Colors.white)),
+                                          child: const Text(
+                                            'Pagado',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                          ),
                                         ),
                                 ),
                               ),
@@ -239,14 +305,28 @@ class _FacturacionPagoState extends State<FacturacionPago> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Container(
-                          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12)),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
                           padding: const EdgeInsets.all(24),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Icon(Icons.check_circle, size: 88, color: AppColors.positive),
+                              Icon(
+                                Icons.check_circle,
+                                size: 88,
+                                color: AppColors.positive,
+                              ),
                               const SizedBox(height: 16),
-                              Text('Pago Aprobado', style: TextStyle(fontSize: 22, color: AppColors.secondary, fontWeight: FontWeight.bold)),
+                              Text(
+                                'Pago Aprobado',
+                                style: TextStyle(
+                                  fontSize: 22,
+                                  color: AppColors.secondary,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ],
                           ),
                         ),
